@@ -1,22 +1,17 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - main
 
 pool:
-  name: 'Default'   # 👈 Your agent pool name
+  name: 'Default'
   demands:
-    - Agent.OS -equals Linux   # Optional (Linux/Windows/Mac)
+    - Agent.OS -equals Windows_NT
 
 steps:
-- script: echo "Hello, world from self-hosted agent!"
-  displayName: 'Run a one-line script'
+- powershell: Write-Host "Hello, world from Windows self-hosted agent!"
+  displayName: 'Run a one-line PowerShell script'
 
-- script: |
-    echo "Running on self-hosted agent"
-    echo "Add build, test, and deployment steps here"
-    echo "Reference: https://aka.ms/yaml"
-  displayName: 'Run a multi-line script'
+- powershell: |
+    Write-Host "Running on Windows self-hosted agent"
+    Write-Host "Add build, test, and deployment steps here"
+    Write-Host "Reference: https://aka.ms/yaml"
+  displayName: 'Run a multi-line PowerShell script'
