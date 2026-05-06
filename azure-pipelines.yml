@@ -7,13 +7,16 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: 'Default'   # 👈 Your agent pool name
+  demands:
+    - Agent.OS -equals Linux   # Optional (Linux/Windows/Mac)
 
 steps:
-- script: echo Hello, world!
+- script: echo "Hello, world from self-hosted agent!"
   displayName: 'Run a one-line script'
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
+    echo "Running on self-hosted agent"
+    echo "Add build, test, and deployment steps here"
+    echo "Reference: https://aka.ms/yaml"
   displayName: 'Run a multi-line script'
