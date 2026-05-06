@@ -1,17 +1,15 @@
+
 trigger:
 - main
 
 pool:
-  name: 'Default'
-  demands:
-    - Agent.OS -equals Windows_NT
+  vmImage: ubuntu-latest
 
 steps:
-- powershell: Write-Host "Hello, world from Windows self-hosted agent!"
-  displayName: 'Run a one-line PowerShell script'
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
 
-- powershell: |
-    Write-Host "Running on Windows self-hosted agent"
-    Write-Host "Add build, test, and deployment steps here"
-    Write-Host "Reference: https://aka.ms/yaml"
-  displayName: 'Run a multi-line PowerShell script'
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
